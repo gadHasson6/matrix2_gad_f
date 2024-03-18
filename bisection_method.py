@@ -42,8 +42,8 @@ def bisection_method(f, a, b, tol=1e-5):
     # while the diff af a&b is not smaller than tol, and k is not greater than the max possible steps
     while abs(b - a) > tol and k <= steps:
         c = (a + b) / 2  # Calculation of the middle value
-        if (3*(a**2) - 6) == 0:
-            return c
+        # if (3*(a**2) - 6) == 0:
+        #     return c
         if f(c) == 0:
             return c  # Procedure completed successfully
 
@@ -62,14 +62,14 @@ def find_all_roots(f, a, b, tol=1e-6):
     roots = []
     if (3*(a**2) - 6) == 0 :
         a = a + 0.00000001
-    # if (3*(a**2) - 6) == 0 and b < 0:
-    #     a = a - 0.00001
+    if (3*(b**2) - 6) == 0:
+        b = b - 0.00001
     x = np.linspace(a, b, 1000)  # Divide the interval into smaller sub-intervals
 
     for i in range(len(x) - 1):
         if np.sign(f(x[i])) != np.sign(f(x[i + 1])):
             root = np.round(bisection_method(f, x[i], x[i + 1], tol), 7)
-            if not any(abs(x - root) < 0.000001 for x in roots):
+            if (not any(abs(x - root) < 0.000001 for x in roots)) and (0 == np.round(f(root),2)):
                 roots.append(root)
 
     return roots
