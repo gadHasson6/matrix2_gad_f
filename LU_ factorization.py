@@ -79,14 +79,26 @@ def lu_solve(A_b):
         print("{:.6f}".format(x))
     print(bcolors.ENDC)
 
-
+# Date: 18.03.24
+# Group members:
+# Segev Chen 322433400
+# Gad Gadi Hasson 207898123
+# Carmel Dor 316015882
+# Artiom Bondar 332692730
+# Git: https://github.com/gadHasson6/matrix2_gad_f.git
+# Name: Gad Gadi Hasson
 if __name__ == '__main__':
     np.set_printoptions(suppress=True, precision=4)
     # A_b = [[1, -1, 2, -1, -8],
     #        [2, -2, 3, -3, -20],
     #        [1, 1, 1, 0, -2],
     #        [1, -1, 4, 3, 4]]
-    A_b = [[-1.41, 2, 0, 1],
-           [1, -1.41, 1, 1],
-           [0, 2, -1.41, 1]]
+    # A_b = [[-1.41, 2, 0, 1],
+    #        [1, -1.41, 1, 1],
+    #        [0, 2, -1.41, 1]]
+    A_b = [[2, 3, 4, 5, 6, 92],
+           [-5, 3, 4, -2, 3, 22],
+           [4, -5, -2, 2, 6, 42],
+           [4, 5, -1, -2, -3, -22],
+           [5, 5, 3, -3, 5, 41]]
     lu_solve(A_b)

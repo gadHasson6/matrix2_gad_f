@@ -5,7 +5,7 @@ from colors import bcolors
 from matrix_utility import is_diagonally_dominant, is_square_matrix, DominantDiagonalFix
 
 
-def gauss_seidel(A, b, X0, TOL=1e-16, N=200):
+def gauss_seidel(A, b, X0, TOL=1e-6, N=200):
     n = len(A)
     k = 1
     if not is_square_matrix(A):
@@ -39,11 +39,22 @@ def gauss_seidel(A, b, X0, TOL=1e-16, N=200):
         print("Maximum number of iterations exceeded")
         return tuple(x)
 
-
+# Date: 18.03.24
+# Group members:
+# Segev Chen 322433400
+# Gad Gadi Hasson 207898123
+# Carmel Dor 316015882
+# Artiom Bondar 332692730
+# Git: https://github.com/gadHasson6/matrix2_gad_f.git
+# Name: Gad Gadi Hasson
 if __name__ == '__main__':
 
-    A = np.array([[3, 1, 1], [1, 1, 3], [1, 3, 1]])
-    b = np.array([7, 7, 11])
+    A = np.array([[2, 3, 4, 5, 6],
+                  [-5, 3, 4, -2, 3],
+                  [4, -5, -2, 2, 6],
+                  [4, 5, -1, -2, -3],
+                  [5, 5, 3, -3, 5]])
+    b = np.array([ 92, 22, 42, -22 ,41])
     X0 = np.zeros_like(b)
 
     solution =gauss_seidel(A, b, X0)
