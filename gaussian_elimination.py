@@ -110,28 +110,28 @@ def backward_substitution(mat):
     return x
 
 
-# Date: 18.03.24
+# Date: 18.3.24
 # Group members:
 # Segev Chen 322433400
 # Gad Gadi Hasson 207898123
 # Carmel Dor 316015882
 # Artiom Bondar 332692730
-# Git: https://github.com/gadHasson6/matrix2_gad_f.git
-# Name: Gad Gadi Hasson
+# Git: https://github.com/IMrMoon/SegevAnaliza.git
+# Name: Segev Chen
 if __name__ == '__main__':
 
     np.set_printoptions(suppress=True, precision=4)
-    A_b = [[2, 3, 4, 5, 6, 92],
-           [-5, 3, 4, -2, 3, 22],
-           [4, -5, -2, 2, 6, 42],
-           [4, 5, -1, -2, -3, -22],
-           [5, 5, 3, -3, 5, 41]]
+    A_b = [[2,3,4, 5, 6,92],
+            [-5, 3, 4,-2,3,22],
+            [4, -5, -2,2,6,42],
+            [4,5,-1,-2,-3,-22],
+            [5,5,3,-3,5,41]]
 
     result = gaussianElimination(A_b)
     if isinstance(result, str):
         print(result)
     else:
-        print(bcolors.OKBLUE, "\nSolution for the system:", bcolors.ENDC)
+        print(bcolors.OKBLUE, "\nSolution for the system:")
         for x in result:
-            print(bcolors.OKBLUE, "{:.6f}".format(x), bcolors.ENDC)
-    # print(bcolors.OKBLUE, "the norm of the matrix plus the question number: ", norm(A_b) + 3, bcolors.ENDC)
+            print("{:.6f}".format(x))
+    print("the norm of the matrix plus the question number: ", norm(A_b) + 3)

@@ -42,14 +42,14 @@ def condition_number(A):
     return cond
 
 
-# Date: 18.03.24
+# Date: 19.2.24
 # Group members:
 # Segev Chen 322433400
 # Gad Gadi Hasson 207898123
 # Carmel Dor 316015882
 # Artiom Bondar 332692730
-# Git: https://github.com/gadHasson6/matrix2_gad_f.git
-# Name: Gad Gadi Hasson
+# Git:https://github.com/IMrMoon/matrix1.git
+# Name: Segev Chen
 if __name__ == '__main__':
     A = np.array([[-1, -2, 5],
                   [4, -1, 1],
@@ -57,4 +57,3 @@ if __name__ == '__main__':
     cond = condition_number(A)
 
     print(bcolors.OKGREEN, "\n condition number: ", cond, bcolors.ENDC)
-

@@ -31,9 +31,7 @@ Returns variables:
 """
 
 
-def bisection_method(f, a, b, tol=1e-5):
-    # if np.sign(a) == np.sign(b):
-    #     raise Exception("The scalars a and b do not bound a root")
+def bisection_method(f, a, b, tol=1e-6):
     c, k = 0, 0
     steps = max_steps(a, b, tol)  # calculate the max steps possible
 
@@ -42,8 +40,9 @@ def bisection_method(f, a, b, tol=1e-5):
     # while the diff af a&b is not smaller than tol, and k is not greater than the max possible steps
     while abs(b - a) > tol and k <= steps:
         c = (a + b) / 2  # Calculation of the middle value
-        # if (3*(a**2) - 6) == 0:
-        #     return c
+
+        if c == 0:
+            return 0
         if f(c) == 0:
             return c  # Procedure completed successfully
 
@@ -60,34 +59,30 @@ def bisection_method(f, a, b, tol=1e-5):
 
 def find_all_roots(f, a, b, tol=1e-6):
     roots = []
-    if (3*(a**2) - 6) == 0 :
-        a = a + 0.00000001
-    if (3*(b**2) - 6) == 0:
-        b = b - 0.00001
     x = np.linspace(a, b, 1000)  # Divide the interval into smaller sub-intervals
 
     for i in range(len(x) - 1):
         if np.sign(f(x[i])) != np.sign(f(x[i + 1])):
             root = np.round(bisection_method(f, x[i], x[i + 1], tol), 7)
-            if (not any(abs(x - root) < 0.000001 for x in roots)) and (0 == np.round(f(root),2)):
+            if (not any(abs(x - root) < 0.000001 for x in roots)) and (0 == np.round(f(root), 2)):
                 roots.append(root)
 
     return roots
 
-# Date: 18.03.24
+# Date: 18.3.24
 # Group members:
 # Segev Chen 322433400
 # Gad Gadi Hasson 207898123
 # Carmel Dor 316015882
 # Artiom Bondar 332692730
-# Git: https://github.com/gadHasson6/matrix2_gad_f.git
-# Name: Gad Gadi Hasson
+# Git:https://github.com/IMrMoon/SegevAnaliza.git
+# Name: Segev Chen
 if __name__ == '__main__':
-    f = lambda x: ((2*(x**2) + 7*(x**3) - 6) / (3*(x**2) - 6))
+    f = lambda x: (x**5 -6*x**2 -1) / (7*x**3 + 1)
 
     # Adjust the interval to avoid the singularity
-    a = 0
-    b = 3
+    a = -2
+    b = 2
 
     roots = find_all_roots(f, a, b)
     print(bcolors.OKBLUE, f"\nThe equation f(x) has approximate roots at {roots}", bcolors.ENDC)
