@@ -19,13 +19,27 @@ def polynomialInterpolation(table_points, x):
     print(result)
     return result
 
-
+# Date: 08.04.2024
+# Group members:
+# Segev Chen 322433400
+# Gad Gadi Hasson 207898123
+# Carmel Dor 316015882
+# Artiom Bondar 332692730
+# Git:https://github.com/gadHasson6/matrix2_gad_f.git
+# Name: Gad Gadi Hasson
 if __name__ == '__main__':
-    table_points = [(0, 0), (1, 0.8415), (2, 0.9093), (3, 0.1411), (4, -0.7568), (5, -0.9589), (6, -0.2794)]
-    x = 1.28
+    table_points = [(1.2, 1.31), (1.3, 2.69), (1.4, 1.3), (1.5, -1.25), (1.6, -2.1)]
+    xa = 1.47
+    ab = 1.65
     print(bcolors.OKBLUE, "----------------- Interpolation & Extrapolation Methods -----------------\n", bcolors.ENDC)
     print(bcolors.OKBLUE, "Table Points: ", bcolors.ENDC, table_points)
-    print(bcolors.OKBLUE, "Finding an approximation to the point: ", bcolors.ENDC, x, '\n')
-    polynomialInterpolation(table_points, x)
+    print(bcolors.OKBLUE, "Finding an approximation to the point: ", bcolors.ENDC, xa, '\n')
+    polynomialInterpolation(table_points, xa)
+    print(bcolors.OKBLUE, "\n---------------------------------------------------------------------------\n",
+          bcolors.ENDC)
+    print(bcolors.OKBLUE, "----------------- Interpolation & Extrapolation Methods -----------------\n", bcolors.ENDC)
+    print(bcolors.OKBLUE, "Table Points: ", bcolors.ENDC, table_points)
+    print(bcolors.OKBLUE, "Finding an approximation to the point: ", bcolors.ENDC, ab, '\n')
+    polynomialInterpolation(table_points, ab)
     print(bcolors.OKBLUE, "\n---------------------------------------------------------------------------\n",
           bcolors.ENDC)

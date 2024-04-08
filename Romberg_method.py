@@ -34,23 +34,31 @@ def romberg_integration(func, a, b, n):
             R[i, j] = R[i, j - 1] + (R[i, j - 1] - R[i - 1, j - 1]) / ((4 ** j) - 1)
 
         if np.round(R[i - 1, i - 1], n) == np.round(R[i, i], n):
-            print(counter)
-            return R[i, i]
+            print(f'R[{i},{i}] - R[{i-1},{i-1}] = {np.round(R[i, i], 6) - np.round(R[i - 1, i - 1],6)}')
+            print(f" Division into n={counter} sections ")
+            return np.round(R[i, i], n)
 
     print("we have reach maximum iterations {20}")
-    return R[n - 1, n - 1]
+    return R[19, 19]
 
 
 def f(x):
-    return x**3
+    return (np.sin(x**2 + 5 * x + 6)) / (2 * (np.exp(-x)))
 
-
+# Date: 08.04.2024
+# Group members:
+# Segev Chen 322433400
+# Gad Gadi Hasson 207898123
+# Carmel Dor 316015882
+# Artiom Bondar 332692730
+# Git:https://github.com/gadHasson6/matrix2_gad_f.git
+# Name: Gad Gadi Hasson
 if __name__ == '__main__':
 
-    a = -2
-    b = 2
+    a = -0.7
+    b = -0.5
     n = 5
     integral = romberg_integration(f, a, b, n)
-
-    print( f" Division into n={n} sections ")
     print(bcolors.OKBLUE, f"Approximate integral in range [{a},{b}] is {integral}", bcolors.ENDC)
+
+
